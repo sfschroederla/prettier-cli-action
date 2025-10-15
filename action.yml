@@ -48,7 +48,7 @@ runs:
       shell: bash
       run: |
         echo "Found errors: "
-        echo "${{ steps.prettier-run.outputs.prettier-output }}
+        echo "${{ steps.prettier-run.outputs.prettier-output }}"
         exit 1
 
 branding:
