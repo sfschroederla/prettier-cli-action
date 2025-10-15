@@ -40,10 +40,7 @@ runs:
       id: prettier-run
       shell: bash
       run: |
-        EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
-        echo "prettier-output<<$EOF" >> $GITHUB_OUTPUT
-        echo "$(prettier --list-different --config ${{ inputs.config_path }} --ignore-path ${{ inputs.ignore_path }} --no-error-on-unmatched-pattern ${{ inputs.file_pattern }})" >> $GITHUB_OUTPUT
-        echo "$EOF" >> $GITHUB_OUTPUT
+        prettier --list-different --config ${{ inputs.config_path }} --ignore-path ${{ inputs.ignore_path }} --no-error-on-unmatched-pattern ${{ inputs.file_pattern }}
 
     - name: Fail On Error
       id: fail-on-error
