@@ -40,7 +40,7 @@ runs:
       id: prettier-run
       shell: bash
       run: |
-        PRETTY=$(prettier --list-different --config ${{ inputs.config_path }} --ignore-path ${{ inputs.ignore_path }} --no-error-on-unmatched-pattern ${{ inputs.file_pattern }})
+        PRETTY=$(prettier --list-different --config ./src/.prettierrc --ignore-path ./src/.prettierignore --no-error-on-unmatched-pattern src/**/*.{js,ts,jsx,tsx,json,css,md} || true)
         echo "prettier-output<<EOF" >> "$GITHUB_OUTPUT"
         echo "$PRETTY" >> "$GITHUB_OUTPUT"
         echo "EOF" >> "$GITHUB_OUTPUT"
